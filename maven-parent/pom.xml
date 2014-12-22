@@ -1,4 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>br.com.colbert</groupId>
@@ -10,11 +11,28 @@
 	<description>Parent POM contendo configurações a serem herdadas por todos os projetos.</description>
 
 	<properties>
+		<!-- Versão do Java utilizada no projeto -->
 		<java.version>1.8</java.version>
 
+		<!-- Encoding padrão dos arquivos do projeto -->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
+		<!-- Nome do projeto dentro do repositório SCM -->
+		<scm.project.name>colbert-maven-parent.git</scm.project.name>
+
+		<!-- Formato do nome das tags geradas nos releases -->
+		<release.tagNameFormat>@{project.artifactId}-@{project.version}</release.tagNameFormat>
+
+		<!-- URLs -->
+		<scm.base.url>git:git://github.com/Ryudo302</scm.base.url>
 		<repository.base.url>http://localhost:8081/nexus/content/repositories/</repository.base.url>
+
+		<!-- Versões de plugins -->
+		<maven-compiler-plugin.version>2.5.1</maven-compiler-plugin.version>
+		<maven-release-plugin.version>2.5.1</maven-release-plugin.version>
+		<maven-source-plugin.version>2.4</maven-source-plugin.version>
+		<maven-javadoc-plugin.version>2.10.1</maven-javadoc-plugin.version>
+		<cobertura-maven-plugin.version>2.6</cobertura-maven-plugin.version>
 	</properties>
 
 	<distributionManagement>
@@ -44,7 +62,16 @@
 
 		<plugins>
 			<plugin>
+				<artifactId>maven-release-plugin</artifactId>
+				<version>${maven-release-plugin.version}</version>
+				<configuration>
+					<tagNameFormat>${release.tagNameFormat}</tagNameFormat>
+				</configuration>
+			</plugin>
+
+			<plugin>
 				<artifactId>maven-source-plugin</artifactId>
+				<version>${maven-source-plugin.version}</version>
 				<executions>
 					<execution>
 						<id>attach-sources</id>
@@ -60,7 +87,7 @@
 			<plugins>
 				<plugin>
 					<artifactId>maven-compiler-plugin</artifactId>
-					<version>2.5.1</version>
+					<version>${maven-compiler-plugin.version}</version>
 					<configuration>
 						<compilerVersion>${java.version}</compilerVersion>
 						<encoding>${project.build.sourceEncoding}</encoding>
@@ -79,7 +106,20 @@
 		<plugins>
 			<plugin>
 				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>${maven-javadoc-plugin.version}</version>
+			</plugin>
+
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>cobertura-maven-plugin</artifactId>
+				<version>${cobertura-maven-plugin.version}</version>
 			</plugin>
 		</plugins>
 	</reporting>
+
+	<scm>
+		<url>scm:${scm.base.url}/${scm.project.name}</url>
+		<connection>${project.scm.url}</connection>
+		<developerConnection>${project.scm.url}</developerConnection>
+	</scm>
 </project>
