@@ -24,7 +24,7 @@
 		<release.tagNameFormat>@{project.artifactId}-@{project.version}</release.tagNameFormat>
 
 		<!-- URLs -->
-		<scm.base.url>git:git://github.com/Ryudo302</scm.base.url>
+		<scm.base.url>git://github.com/Ryudo302</scm.base.url>
 		<repository.base.url>http://localhost:8081/nexus/content/repositories/</repository.base.url>
 
 		<!-- Versões de plugins -->
@@ -109,17 +109,17 @@
 				<version>${maven-javadoc-plugin.version}</version>
 			</plugin>
 
-			<plugin>
+			<!-- <plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>cobertura-maven-plugin</artifactId>
 				<version>${cobertura-maven-plugin.version}</version>
-			</plugin>
+			</plugin> -->
 		</plugins>
 	</reporting>
 
 	<scm>
-		<url>scm:${scm.base.url}/${scm.project.name}</url>
-		<connection>${project.scm.url}</connection>
-		<developerConnection>${project.scm.url}</developerConnection>
+		<url>${scm.base.url}/${scm.project.name}</url>
+		<connection>scm:git:${project.scm.url}</connection>
+		<developerConnection>scm:git:${project.scm.url}</developerConnection>
 	</scm>
 </project>
