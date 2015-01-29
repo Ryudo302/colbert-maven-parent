@@ -149,7 +149,7 @@
 	<scm>
 		<url>https://${scm.base.url}/${scm.project.group}/${scm.project.name}</url>
 		<connection>scm:git:http://${project.scm.url}</connection>
-		<developerConnection>scm:git:ssh://git@${scm.base.url}/${scm.project.group}/${scm.project.name}</developerConnection>
+		<developerConnection>scm:git:git@${scm.base.url}:${scm.project.group}/${scm.project.name}</developerConnection>
 		<tag>HEAD</tag>
 	</scm>
 </project>
