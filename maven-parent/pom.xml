@@ -3,7 +3,7 @@
 
 	<groupId>br.com.colbert</groupId>
 	<artifactId>maven-parent</artifactId>
-	<version>1.1.0</version>
+	<version>1.1.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<name>Colbert Maven Parent</name>
@@ -24,7 +24,7 @@
 		<release.tagNameFormat>@{project.artifactId}-@{project.version}</release.tagNameFormat>
 
 		<!-- URLs -->
-		<scm.base.url>git://github.com/Ryudo302</scm.base.url>
+		<scm.base.url>github.com/Ryudo302</scm.base.url>
 		<repository.base.url>http://localhost:8081/nexus/content/repositories/</repository.base.url>
 
 		<!-- Versões de plugins -->
@@ -144,9 +144,9 @@
 	</reporting>
 
 	<scm>
-		<url>${scm.base.url}/${scm.project.name}</url>
-		<connection>scm:git:${project.scm.url}</connection>
-		<developerConnection>scm:git:${project.scm.url}</developerConnection>
+		<url>https://${scm.base.url}/${scm.project.name}</url>
+		<connection>scm:git:http://${project.scm.url}</connection>
+		<developerConnection>scm:git:ssh://git@${scm.base.url}/${scm.project.name}</developerConnection>
 	  <tag>maven-parent-1.1.0</tag>
   </scm>
 </project>
