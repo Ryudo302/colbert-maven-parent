@@ -18,6 +18,8 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>${project.build.sourceEncoding}</project.reporting.outputEncoding>
 
+		<!-- Grupo do projeto dentro do repositório SCM -->
+		<scm.project.group>Ryudo302</scm.project.group>
 		<!-- Nome do projeto dentro do repositório SCM -->
 		<scm.project.name>colbert-maven-parent.git</scm.project.name>
 
@@ -25,7 +27,7 @@
 		<release.tagNameFormat>@{project.artifactId}-@{project.version}</release.tagNameFormat>
 
 		<!-- URLs -->
-		<scm.base.url>github.com/Ryudo302</scm.base.url>
+		<scm.base.url>github.com</scm.base.url>
 		<repository.base.url>http://localhost:8081/nexus/content/repositories/</repository.base.url>
 
 		<!-- Versões de plugins -->
@@ -145,9 +147,9 @@
 	</reporting>
 
 	<scm>
-		<url>https://${scm.base.url}/${scm.project.name}</url>
+		<url>https://${scm.base.url}/${scm.project.group}/${scm.project.name}</url>
 		<connection>scm:git:http://${project.scm.url}</connection>
-		<developerConnection>scm:git:git@${scm.base.url}/${scm.project.name}</developerConnection>
+		<developerConnection>scm:git:ssh://git@${scm.base.url}/${scm.project.group}/${scm.project.name}</developerConnection>
 		<tag>HEAD</tag>
 	</scm>
 </project>
