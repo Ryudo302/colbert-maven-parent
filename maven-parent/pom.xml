@@ -3,7 +3,7 @@
 
 	<groupId>br.com.colbert</groupId>
 	<artifactId>maven-parent</artifactId>
-	<version>1.1.0</version>
+	<version>1.1.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<name>Colbert Maven Parent</name>
@@ -149,6 +149,6 @@
 		<url>https://${scm.base.url}/${scm.project.group}/${scm.project.name}</url>
 		<connection>scm:git:http://${project.scm.url}</connection>
 		<developerConnection>scm:git:git@${scm.base.url}:${scm.project.group}/${scm.project.name}</developerConnection>
-		<tag>maven-parent-1.1.0</tag>
+		<tag>HEAD</tag>
 	</scm>
 </project>
